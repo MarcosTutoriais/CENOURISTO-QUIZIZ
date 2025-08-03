@@ -328,4 +328,132 @@
 </body></html>
 
 
+  <style>
+  #doacao * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
+  #doacao {
+    font-family: 'Segoe UI', sans-serif;
+    background: #121212;
+    color: #fff;
+    overflow-x: hidden;
+  }
+
+  #doacao .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9998;
+  }
+
+  #doacao .donation-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #1f1f1f;
+    padding: 20px;
+    border-radius: 16px;
+    width: 320px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    z-index: 9999;
+    animation: popup 0.3s ease;
+    overflow-y: auto;
+  }
+
+  #doacao .header-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  #doacao .header-panel h2 {
+    font-size: 20px;
+    color: #4da6ff;
+    margin-left: 50px;
+    font-weight: bold;
+  }
+
+  #doacao .close-btn {
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 9px;
+  }
+
+  #doacao .donation-panel p {
+    font-size: 14px;
+    color: #ddd;
+    margin-bottom: 14px;
+    line-height: 1.6;
+  }
+
+  #doacao .donation-panel a {
+    color: #4da6ff;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    top: -10px;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+
+  #doacao .donation-panel a:hover {
+    color: #4da6ff;
+    text-decoration: underline;
+  }
+
+  #doacao button {
+    background-color: #0000ff;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  #doacao button:hover {
+    background-color: #4da6ff;
+  }
+
+  @keyframes popup {
+    0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  }
+</style>
+
+<div id="doacao">
+  <div class="overlay" id="overlay"></div>
+  <div class="donation-panel" id="donationPanel">
+    <div class="header-panel">
+      <h2>Apoie este Projeto!</h2>
+      <span class="close-btn" onclick="fecharPainel()">×</span>
+    </div>
+    <p>Ajude a manter nosso sistema gratuito, rápido e estável para todos os usuários. Toda ajuda é bem-vinda!</p>
+    <p>Com sua doação, conseguimos manter o projeto online e atualizado constantemente.</p>   
+    <a href="https://discord.gg/48Wa95KfPr" target="_blank">SHOOL BOTS CVA</a>
+    <button onclick="fazerDoacao()">Fazer uma Doação</button>
+  </div>
+</div>
+
+<script>
+  function fecharPainel() {
+    document.getElementById('donationPanel').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+  }
+  function fazerDoacao() {
+    alert("Você será redirecionado para o link de doação.");
+    window.open("https://pix.example.com", "_blank");
+  }
+</script>
